@@ -11,3 +11,19 @@ These should all be provided as environment variables.
 * `URL`: *Required.* The URL to test
 * `SKIP_SSL_VERIFICATION`: *Optional.* If set to `true` skips SSL verification
 * `HEADERS`: *Optional.* Set any required HTTP headers on the HTTP request. For example `{"HOST": "google.com"}`
+
+### Usage
+
+Example:
+
+With the `ginkgo` CLI
+
+```
+RESPONSE_CODE=200 RESPONSE_BODY_REGEX=".*" URL="https://github.com" ginkgo -r
+```
+
+With `go test`
+
+```
+RESPONSE_CODE=200 RESPONSE_BODY_REGEX=".*" URL="https://github.com" go test -v ./...
+```
