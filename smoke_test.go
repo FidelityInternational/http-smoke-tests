@@ -21,12 +21,19 @@ var _ = Describe("HTTP Smoke tests", func() {
 		resp              *http.Response
 	)
 
+	const defaultRequestMethod = "GET"
+
 	BeforeEach(func() {
 		responeCode = loadVar("RESPONSE_CODE")
 		responseBodyRegex = loadVar("RESPONSE_BODY_REGEX")
 		headersJSON := os.Getenv("HEADERS")
 		if headersJSON == "" {
 			headersJSON = "{}"
+		}
+
+		requestMethod := os.Getenv("REQUEST_METHOD")
+		if requestMethod == "" {
+			requestMethod = defaultRequestMethod
 		}
 
 		url := loadVar("URL")

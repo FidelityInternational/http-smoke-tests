@@ -1,0 +1,17 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: 1.9-alpine3.6
+inputs:
+  - name: http-smoke-tests-git
+    path: src/http-smoke-tests-git
+run:
+  path: sh
+  args:
+  - -euc
+  - |
+    export GOPATH=$PWD
+    cd src/http-smoke-tests-git
+    go test -v ./...
