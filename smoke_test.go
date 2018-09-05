@@ -47,7 +47,7 @@ var _ = Describe("HTTP Smoke tests", func() {
 			)
 		}
 
-		req, err := http.NewRequest("GET", url, nil)
+		req, err := http.NewRequest(requestMethod, url, nil)
 		Ω(err).Should(BeNil())
 		for key, value := range headers {
 			if strings.ToLower(key) == "host" {
