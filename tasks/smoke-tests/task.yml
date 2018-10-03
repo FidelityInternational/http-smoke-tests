@@ -13,3 +13,5 @@ run:
   - |
     cd http-smoke-tests-git
     go test -v ./...
+params:
+  GOFLAGS: -mod=vendor
