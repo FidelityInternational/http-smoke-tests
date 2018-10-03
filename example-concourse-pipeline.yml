@@ -1,0 +1,18 @@
+resources:
+- name: http-smoke-tests-git
+  type: git
+  source:
+    uri: https://github.com/srbry/http-smoke-tests.git
+    branch: go-mod
+
+jobs:
+- name: smoke-test
+  serial: true
+  plan:
+  - get: http-smoke-tests-git
+  - task: smoke-test
+    file: http-smoke-tests-git/tasks/smoke-tests/task.yml
+    params:
+      RESPONSE_CODE: 200
+      RESPONSE_BODY_REGEX: search
+      URL: https://google.co.uk
