@@ -3,7 +3,7 @@ image_resource:
   type: docker-image
   source:
     repository: golang
-    tag: 1.11-alpine3.8
+    tag: 1.11-stretch
 inputs:
   - name: http-smoke-tests-git
 run:
@@ -11,6 +11,5 @@ run:
   args:
   - -euc
   - |
-    export GOPATH=$PWD
     cd http-smoke-tests-git
     go test -v ./...
